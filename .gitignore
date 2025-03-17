@@ -1,2 +1,6 @@
 node_modules
 dist
+logs/*
+!logs/.gitignore
+.env.development
+.env.production
