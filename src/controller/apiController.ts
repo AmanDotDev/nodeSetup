@@ -5,7 +5,6 @@ import httpError from '../util/httpError'
 export default {
     self: (req: Request, res: Response, next: NextFunction) => {
         try {
-            throw new Error('test error')
             httpResponse(req, res, 200, responseMessage.SUCCESS)
         } catch (err) {
             httpError(next, err, req, 500)
