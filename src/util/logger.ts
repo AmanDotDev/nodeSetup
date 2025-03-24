@@ -23,16 +23,9 @@ const consoleLogFormat = format.printf((info) => {
 })
 
 const consoleTransport = (): Array<ConsoleTransportInstance> => {
-    if (config.ENV === EApplicationEnvironment.DEVELOPMENT) {
-        return [
-            new transports.Console({
-                level: 'info',
-                format: format.combine(format.timestamp(), consoleLogFormat)
-            })
-        ]
-    }
-
-    return []
+    return config.ENV === EApplicationEnvironment.DEVELOPMENT
+        ? [new transports.Console({ level: 'info', format: format.combine(format.timestamp(), consoleLogFormat) })]
+        : []
 }
 
 const fileLogFormat = format.printf((info) => {
